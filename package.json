@@ -1,0 +1,11 @@
+{
+  "name": "javascript-stopwatch",
+  "version": "1.0.0",
+  "description": "Vanilla JavaScript Stopwatch",
+  "main": "stopwatch.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "lord sayur",
+  "license": "ISC"
+}
