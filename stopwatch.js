@@ -1,3 +1,5 @@
+let utility = require("./utility");
+
 let stopWatch;
 let counts = 0;
 let countsElement = document.querySelector("#timer");
@@ -6,28 +8,19 @@ let stopBtn = document.querySelector("#stopBtn");
 let resetBtn = document.querySelector("#resetBtn");
 let seconds = 0;
 let minutes = 0;
-let displayMinute = 0;
 
 let start = () => {
   stopWatch = setInterval(() => {
     counts++;
-    if (counts < 60) {
-      seconds = counts;
-    } else {
-      minutes++;
-      counts = 0;
-      seconds = counts;
-    }
-    if (seconds < 10) {
-      seconds = `0${seconds}`;
-    }
-    if (minutes < 10) {
-      displayMinute = `0${minutes}`;
-    } else {
-      displayMinute = minutes;
-    }
-    countsElement.innerHTML = `${displayMinute}:${seconds}`;
-  }, 100);
+
+    countsElement.innerHTML = formatNumber(counts);
+  }, 10);
+};
+
+let formatNumber = (unformattedNumber) => {
+  let milis = utility.stringifyNumber(unformattedNumber).slice(2);
+  let seconds = utility.stringifyNumber(unformattedNumber).slice(0, 2);
+  return `${seconds}:${milis}`;
 };
 
 let stop = () => {
